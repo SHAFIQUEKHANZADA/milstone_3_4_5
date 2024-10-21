@@ -1,0 +1,425 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    padding: 10px 0px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        /* justify-content: space-between; */
+        margin: 0px 20px;
+        padding: 10px 0px;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        z-index: 1000;
+    }
+
+    .toggle li {
+        display: none;
+    }
+
+    .butDiv button {
+        display: none;
+    }
+
+}
+
+.divUl ul {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+}
+
+.divUl ul li a {
+    font-size: large;
+    font-weight: 100;
+    color: black;
+}
+
+.divUl ul li a:hover {
+    color: #F27222;
+    font-size: large;
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.butDiv button {
+    padding: 15px 18px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid orange;
+    font-size: large;
+    font-weight: 300;
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #F27222;
+}
+
+.butDiv button:hover {
+    background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+    color: white;
+    border: none;
+}
+
+/* hero section */
+@media (max-width: 600px) {
+    section {
+        flex-direction: column;
+        margin: 0px 0px;
+        padding-top: 6%;
+    }
+
+    .left {
+        /* text-align: center;   */
+        margin-bottom: 20px;
+    }
+
+    .right img {
+        width: 100%;
+        height: auto;
+    }
+
+    .left h1 {
+        font-size: 10px;
+        font-weight: 400;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .left p {
+        font-size: 1px;
+        font-weight: 200;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .btnMain {
+        margin-top: 6%;
+        flex-direction: column;
+    }
+
+    .btnOne {
+        background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+        color: white;
+        border: none;
+        padding: 15px 18px;
+        border-radius: 5px;
+        font-size: medium;
+        font-weight: 300;
+    }
+
+    .btnTwo {
+        padding: 15px 36px;
+        border-radius: 5px;
+        border: 1px solid orange;
+        font-size: medium;
+        font-weight: 300;
+        background: white;
+        transition: all 0.3s ease;
+        color: #F27222;
+    }
+
+    .btnTwo:focus {
+        background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+        color: white;
+        border: none;
+    }
+}
+
+section {
+    display: flex;
+    margin: 0px 30px;
+    padding-top: 6%;
+}
+
+.btnMain {
+    margin-top: 6%;
+}
+
+.btnOne {
+    background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+    color: white;
+    border: none;
+    padding: 15px 18px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.btnTwo {
+    padding: 15px 36px;
+    border-radius: 10px;
+    border: 1px solid orange;
+    font-size: large;
+    font-weight: 300;
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #F27222;
+}
+
+.btnTwo:hover {
+    background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+    color: white;
+    border: none;
+}
+
+.left h1 {
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.left p {
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.right {
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.btnMain {
+    display: flex;
+    gap: 10px;
+}
+
+.divPara {
+    margin: 0px 20px;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tempDivOne {
+    padding: 20px 0px;
+    margin: 4% 22%;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 600px) {
+    .divPara {
+        margin: 0px 20px;
+        font-size: 15px;
+        font-weight: 300;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .tempDivOne {
+        padding: 20px 0px;
+        margin: 4% 2%;
+        font-size: 8px;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+}
+
+.catogery {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 10%;
+    /* margin: 0px 15px; */
+}
+
+.divCato {
+    background-color: #F9F9FC;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Grande', Geneva, Verdana, sans-serif;
+    /* border-radius: 10px; */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.divCato h1 {
+    font-size: 20px;
+    margin-bottom: 2%;
+}
+
+.divCato p {
+    font-size: 14px;
+}
+
+.divCato:hover {
+    background-color: white;
+    box-shadow: 2px 2px 2px gray;
+    border: 1px solid;
+}
+
+.divCato button {
+    border: 1px solid blue;
+    background-color: #F9F9FC;
+    color: blue;
+    padding: 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: 10%;
+}
+
+.divCato:hover button {
+    background-color: blue;
+    color: white;
+}
+
+.xs {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.xs p {
+    color: #5D61BF;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.xs h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 600px) {
+    .catogery {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px;
+    }
+}
+
+.responsive {
+    background: linear-gradient(to right,
+            white,
+            rgba(242, 114, 34, 0.6),
+            rgba(120, 51, 138, 0.7),
+            rgba(141, 49, 72, 0.8),
+            rgba(175, 44, 121, 0.5),
+            white);
+    padding: 10px 0;
+    height: 100%;
+}
+
+:root {
+    --glass-stroke: rgba(255, 255, 255, 0.2);
+    --thumb-bg: rgba(255, 255, 255, 0.1);
+    --thumb-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.imgDiv {
+    position: relative;
+    padding: 20px;
+    background: var(--thumb-bg);
+    border: 1px solid transparent;
+    border-color: var(--glass-stroke);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--thumb-shadow);
+    transition: all 0.3s ease;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.imgDiv:hover img {
+    opacity: 0.5;
+}
+
+.imgDiv img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.hover-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(242, 114, 34, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.imgDiv:hover .hover-button {
+    opacity: 1;
+}
+
+.imgDiv:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.lix {
+    /* display: flex; */
+    list-style-type: none;
+}
+
+.liOne {
+    margin-top: 2%;
+}
+
+.confirm-btn {
+    padding: 10px 40px;
+    border-radius: 6px;
+    align-items: center;
+    font-size: 16px;
+    justify-content: center;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    margin-left: 38%;
+    background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .confirm-btn {
+        padding: 10px 40px;
+        border-radius: 6px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8%;
+        margin-left: 29%;
+        margin-bottom: 2%;
+        background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+}
+

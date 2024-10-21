@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone 1</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: white;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        nav img {
+            width: 170px;
+            height: 50px;
+        }
+
+        .divUl ul {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+        }
+
+        .divUl a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navBtn {
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navBtn:hover {
+            background-color: #004494;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .input-container,
+        .output-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+        }
+
+        .input-container {
+            margin-right: 20px;
+        }
+
+        .output-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+            overflow-y: auto;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #form {
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #output {
+            flex: 1;
+            margin-top: 5%;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            overflow-y: auto;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .flex-item {
+            flex: 1;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: none;
+        }
+
+        .genBtn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .genBtn:hover {
+            background-color: #0056b3;
+        }
+
+        .profile {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <img src="/pictures/ty.svg" alt="logo">
+        </div>
+        <div class="divUl">
+            <ul id="menu" class="toggle">
+                <li><a style="text-decoration: none;" href="/index.html">Home</a></li>
+                <li><a href="dynamic-resume.html">Dynamic Resume</a></li>
+                <li><a href="editable-resume.html">Editable Resume</a></li>
+                <li><a href="shareable.html">Unique Path and Shareable Link</a></li>
+            </ul>
+        </div>
+        <div class="butDiv">
+            <button class="navBtn" id="openModal">Build My Resume</button>
+        </div>
+    </nav>
+
+    <div class="container">
+       
+        <form id="form">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name"
+                            required>
+                    </div>
+                    <div class="flex-item">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                    </div>
+                </div>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="em" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="ph" name="phone" placeholder="Enter your phone" required>
+
+                <label for="profile">Profile Picture</label>
+                <input type="file" id="pro" name="profile" accept="image/*" required>
+            </fieldset>
+
+            <fieldset id="education-section">
+                <legend>Education</legend>
+                <textarea name="education" id="edu" rows="3" required
+                    placeholder="Tell something about your education"></textarea>
+            </fieldset>
+
+
+            <fieldset id="experience-section">
+                <legend>Experience</legend>
+                <textarea name="experience" id="experience" rows="3" required
+                    placeholder="Tell something about your experience"></textarea>
+            </fieldset>
+
+            <fieldset id="skills-section">
+                <legend>Skills</legend>
+                <div id="skills-container">
+                    <input type="text" id="skill-input" placeholder="Enter a skill" />
+                    <button type="button" id="add-skill-btn">Add Skill</button>
+                </div>
+                <ul id="skills-list"></ul>
+            </fieldset>
+
+
+            <button class="genBtn" type="submit">Generate</button>
+        </form>
+
+       
+        <div id="output">
+            <h2>Generated Resume</h2>
+            <p>Fill out the form to see your resume here.</p>
+        </div>
+    </div>
+
+    <script src="/dynamic.js"></script>
+</body>
+
+</html>

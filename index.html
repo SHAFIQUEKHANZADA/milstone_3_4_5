@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+
+    <style>
+        /* Adjust prev/next button styles */
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+            font-size: 30px;
+        }
+
+        /* Adjust position and z-index */
+        .slick-prev {
+            left: 10px;
+            z-index: 1;
+        }
+
+        .slick-next {
+            right: 10px;
+            z-index: 1;
+        }
+
+        /* Template container */
+        .template {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Centered content */
+        .tempDivOne {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Slick slide adjustments */
+        .slick-slide {
+            margin: 0 15px;
+            /* Reduced margin for smaller screens */
+        }
+
+        /* Ensure images fit properly */
+        .slick-slide img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            /* Prevent overflow */
+        }
+
+        @media (max-width: 768px) {
+            .slick-slide {
+                margin: 0 5px;
+                /* Further reduce margin on mobile */
+            }
+
+            .slick-prev,
+            .slick-next {
+                font-size: 24px;
+                /* Reduce button size for mobile */
+            }
+
+            .imgDiv img {
+                width: 300px;
+                height: auto;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                background-color: #fefefe;
+                margin: 10% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 100%;
+                max-width: 300px;
+                border-radius: 8px;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div>
+            <img src="pictures/ty.svg" alt="logo" width="170" height="50">
+        </div>
+        <div class="divUl">
+            <ul id="menu" class="toggle">
+                <li><a style="text-decoration: none;" href="index.html">Home</a></li>
+                <li><a style="text-decoration: none;" href="pages/dynamic-resume.html">Dynamic Resume</a></li>
+                <li><a style="text-decoration: none;" href="pages/editable-resume.html">Editable Resume</a></li>
+                <li><a style="text-decoration: none;" href="pages/shareable.html">Unique Path and Shareable Link</a>
+                </li>
+            </ul>
+        </div>
+        <div class="butDiv">
+            <button class="navBtn" id="openModal">Build My Resume</button>
+        </div>
+    </nav>
+
+    <section>
+        <div class="left">
+            <h1 class="leftH1">The Best Online
+                <br> Resume Builder
+            </h1>
+            <p>Easily create the perfect Dynamic, Editable and Shareable resume with Unique URL Path for any job using
+                our resume builder platform.</p>
+            <div class="btnMain">
+                <button class="btnOne" id="openModal">Create My Resume Now</button>
+                <!-- <button class="btnTwo">Download Resume</button> -->
+            </div>
+        </div>
+        <div class="right">
+            <img src="pictures/rewq.webp" alt="software" width="600">
+        </div>
+    </section>
+
+    <div class="divPara">
+        <p>Our online resume builder allows you to dynamically create and edit your professional resume. With our unique resume builder feature, you can generate your resume quickly,
+            benefiting from expert suggestions tailored to your skills.</p>
+    </div>
+
+    <!-- templates -->
+    <!-- <div class="template">
+        <div class="tempDivOne">
+            <h1>Pick one of many world-class templates and build your resume in minutes</h1>
+        </div>
+        <div class="tempDivTwo">
+            <div class="responsive">
+                <div class="imgDiv"><img src="pictures/tap1.webp" alt="Slide 1">    <button class="hover-button">Use This Template</button> </div>
+                <div class="imgDiv"><img src="pictures/tap2.webp" alt="Slide 2"><button class="hover-button">Use This Template</button></div>
+                <div class="imgDiv"><img src="pictures/tap3.webp" alt="Slide 3"><button class="hover-button">Use This Template</button></div>
+                <div class="imgDiv"><img src="pictures/tap4.webp" alt="Slide 4"><button class="hover-button">Use This Template</button></div>
+                <div class="imgDiv"><img src="pictures/tap5.jpg" alt="Slide 5"><button class="hover-button">Use This Template</button></div>
+                <div class="imgDiv"><img src="pictures/tap6.webp" alt="Slide 6"><button class="hover-button">Use This Template</button></div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="xs">
+        <p>CREATE A RESUME IN MINUTES</p>
+        <h1>Our Features.</h1>
+    </div>
+
+    <div class="catogery">
+        <div class="divCato">
+            <img src="pictures/dy.svg" alt="" width="60">
+            <h1>Dynamic Resume</h1>
+            <p>Create your resume dynamically in minutes</p>
+            <a href="/pages/dynamic-resume.html" style="text-decoration: none;">
+                <button>CREATE NEW RESUME</button>
+            </a>
+
+        </div>
+        <div class="divCato">
+            <img src="pictures/shar.svg" alt="" width="60">
+            <h1>Editable Resume</h1>
+            <p>Create your resume and can be edit after you make</p>
+            <a href="/pages/editable-resume.html" style="text-decoration: none;">
+                <button>CREATE NEW RESUME</button>
+            </a>
+
+        </div>
+        <div class="divCato">
+            <img src="pictures/edit.svg" alt="" width="60">
+            <h1>Unique Path & Shareable Link</h1>
+            <p>Create your resume and you will also have <br>a unique Url path and you can share your resume</p>
+            <a href="/pages/shareable.html" style="text-decoration: none;">
+                <button>CREATE NEW RESUME</button>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Choose -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Resume Category</h2>
+            <p style="color: blue;">Please choose a category for your resume:</p>
+            <div class="lix">
+                <div class="liOne">
+                    <label id="i" for="dynamic"> <input type="radio" name="s" id="dynamic"> Dynamic Resume</label>
+                </div>
+                <div class="liOne">
+                    <label id="i" for="editable"> <input type="radio" name="s" id="editable"> Editable Resume</label>
+                </div>
+                <div class="liOne">
+                    <label id="i" for="sharable"> <input type="radio" name="s" id="sharable"> Unique Path and Shareable
+                        Link</label>
+                </div>
+
+            </div>
+            <button class="confirm-btn">Create</button>
+        </div>
+    </div>
+
+    <!-- <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select a Template</h2>
+            <div class="template-options">
+                <div class="imgDiv" onclick="confirmTemplate('template1')">
+                    <img src="pictures/tap1.webp" alt="Template 1">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+                <div class="imgDiv" onclick="confirmTemplate('template2')">
+                    <img src="pictures/tap2.webp" alt="Template 2">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+                <div class="imgDiv" onclick="confirmTemplate('template3')">
+                    <img src="pictures/tap3.webp" alt="Template 3">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+                <div class="imgDiv" onclick="confirmTemplate('template4')">
+                    <img src="pictures/tap4.webp" alt="Template 4">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+                <div class="imgDiv" onclick="confirmTemplate('template5')">
+                    <img src="pictures/tap5.jpg" alt="Template 5">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+                <div class="imgDiv" onclick="confirmTemplate('template6')">
+                    <img src="pictures/tap6.webp" alt="Template 6">
+                    <button class="hover-button">Use This Template</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     -->
+
+    <!-- chose tanplate -->
+    <!-- <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Resume Category</h2>
+            <p>Please choose a category for your resume:</p>
+            <ul>
+                <li>Dynamic Resume</li>
+                <li>Editable Resume</li>
+                <li>Unique Path and Shareable Link</li>
+            </ul>
+            <button class="confirm-btn">Confirm</button>
+        </div>
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
