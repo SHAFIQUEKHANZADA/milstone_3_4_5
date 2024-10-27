@@ -1,4 +1,4 @@
-var _a, _b;
+var _a;
 (_a = document.getElementById("form")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (event) {
     var _a;
     event.preventDefault();
@@ -9,23 +9,23 @@ var _a, _b;
     var phoneElement = document.getElementById("ph");
     var eduElement = document.getElementById("edu");
     var expElement = document.getElementById("experience");
+    var skillElement = document.getElementById("skills");
     var userEl = document.getElementById("username");
-    if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && userEl) {
+    if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
         var name_1 = nameElement.value;
         var namesec = nameElementsec.value;
         var em = emailElement.value;
         var ph = phoneElement.value;
         var edu = eduElement.value;
         var experience = expElement.value;
+        var skills = skillElement.value;
         var useName = userEl.value;
-        // Collecting skills from the skills list
-        var skillsList = document.getElementById("skills-list");
-        var skills = Array.from(skillsList.children).map(function (li) { return li.textContent; }).join(", ") || "No skills added.";
         var unq_1 = "resume/".concat(useName.replace(/\s+/g, '_'), "_cv.html");
         // Handle profile picture
         var proFl = (_a = profileInput.files) === null || _a === void 0 ? void 0 : _a[0];
         var proURL = proFl ? URL.createObjectURL(proFl) : "";
-        var output = "\n        <div class=\"resume-container\">\n      ".concat(proURL ? "<img src=\"".concat(proURL, "\" alt=\"profile\" class=\"profile\">") : '', "\n\n      <div class=\"info-section\">\n        <p><strong><i class=\"fas fa-user\"></i> Name:</strong> ").concat(name_1, " ").concat(namesec, "</p>\n        <p><strong><i class=\"fas fa-envelope\"></i> Email:</strong> ").concat(em, "</p>\n        <p><strong><i class=\"fas fa-phone\"></i> Phone:</strong> ").concat(ph, "</p>\n      </div>\n\n      <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n      <p>").concat(edu, "</p>\n\n      <h3><i class=\"fas fa-briefcase\"></i> Experience</h3>\n      <p>").concat(experience, "</p>\n\n      <h3><i class=\"fas fa-code\"></i> Skills</h3>\n      <p>").concat(skills || 'No skills added', "</p>\n    </div>\n    ");
+        // Corrected template for image
+        var output = "\n      <h2>Resume</h2>\n      ".concat(proURL ? "<img src=\"".concat(proURL, "\" alt=\"profile\" class=\"profile\">") : '', "\n       <p><strong><i class=\"fas fa-user\"></i> Name:</strong> ").concat(name_1, " ").concat(namesec, "</p>\n       <p><strong><i class=\"fas fa-envelope\"></i> Email:</strong>").concat(em, "</p>\n        <p><strong><i class=\"fas fa-phone\"></i> Phone:</strong> ").concat(ph, "</p>\n    \n      <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n      <p>").concat(edu, "</p>\n\n       <h3><i class=\"fas fa-briefcase\"></i> Experience</h3>\n      <p>").concat(experience, "</p>\n   <h3><i class=\"fas fa-code\"></i> Skills</h3>\n      <p>").concat(skills, "</p>\n    </div>\n    \n  ");
         var elres = document.getElementById("output");
         if (elres) {
             elres.innerHTML = output;
@@ -78,29 +78,26 @@ function makeEdit() {
     });
 }
 function downloadResumeAsPDF() {
-    var output = document.getElementById("output");
-    if (output) {
-        var pdf = new jsPDF();
-        pdf.html(output, {
-            callback: function (doc) {
-                doc.save('resume.pdf');
-            }
-        });
+    var resumeElement = document.getElementById("output");
+    var options = {
+        margin: 1,
+        filename: 'Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    if (resumeElement) {
+        // Ensure html2pdf is included
+        window.html2pdf().from(resumeElement).set(options).save();
+    }
+    else {
+        console.error('Resume content is missing.');
     }
 }
-(_b = document.getElementById('add-skill-btn')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', function () {
-    var skillInput = document.getElementById('skill-input');
-    var skillsList = document.getElementById("skills-list");
-    if (skillInput && skillsList) {
-        var skillValue = skillInput.value.trim();
-        if (skillValue) {
-            var li = document.createElement('li');
-            li.textContent = skillValue;
-            skillsList.appendChild(li);
-            skillInput.value = '';
-        }
-        else {
-            alert('Please enter a skill before adding.');
-        }
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    var menuToggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', function () {
+        menu.classList.toggle('active');
+    });
 });

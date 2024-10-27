@@ -46,10 +46,17 @@ var _a, _b;
             var li = document.createElement('li');
             li.textContent = skillValue;
             skillsList.appendChild(li);
-            skillInput.value = ''; // Clear input after adding
+            skillInput.value = '';
         }
         else {
             alert('Please enter a skill before adding.');
         }
     }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    var menuToggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', function () {
+        menu.classList.toggle('active');
+    });
 });

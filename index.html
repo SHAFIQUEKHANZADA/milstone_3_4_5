@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
@@ -127,16 +128,18 @@
 
 <body>
     <nav>
-        <div>
+        <div class="fir">
             <img src="pictures/ty.svg" alt="logo" width="170" height="50">
         </div>
         <div class="divUl">
-            <ul id="menu" class="toggle">
-                <li><a style="text-decoration: none;" href="index.html">Home</a></li>
-                <li><a style="text-decoration: none;" href="pages/dynamic-resume.html">Dynamic Resume</a></li>
-                <li><a style="text-decoration: none;" href="pages/editable-resume.html">Editable Resume</a></li>
-                <li><a style="text-decoration: none;" href="pages/shareable.html">Unique Path and Shareable Link</a>
-                </li>
+            <button id="menuToggle" class="menu-icon" aria-label="Toggle Menu">
+                <i class="ri-menu-line"></i>
+            </button>
+            <ul id="menu" class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/dynamic-resume.html">Dynamic Resume</a></li>
+                <li><a href="pages/editable-resume.html">Editable Resume</a></li>
+                <li><a href="pages/shareable.html">Unique Path and Shareable Link</a></li>
             </ul>
         </div>
         <div class="butDiv">
@@ -162,7 +165,8 @@
     </section>
 
     <div class="divPara">
-        <p>Our online resume builder allows you to dynamically create and edit your professional resume. With our unique resume builder feature, you can generate your resume quickly,
+        <p>Our online resume builder allows you to dynamically create and edit your professional resume. With our unique
+            resume builder feature, you can generate your resume quickly,
             benefiting from expert suggestions tailored to your skills.</p>
     </div>
 

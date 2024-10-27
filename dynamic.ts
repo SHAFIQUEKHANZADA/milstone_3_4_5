@@ -76,3 +76,13 @@ document.getElementById('add-skill-btn')?.addEventListener('click', function () 
     }
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle: any = document.getElementById('menuToggle');
+  const menu: any = document.getElementById('menu');
+
+  menuToggle.addEventListener('click', function () {
+      menu.classList.toggle('active');
+  });
+});

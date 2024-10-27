@@ -6,22 +6,20 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const nameElementsec = document.getElementById("last-name") as HTMLInputElement;
   const emailElement = document.getElementById("em") as HTMLInputElement;
   const phoneElement = document.getElementById("ph") as HTMLInputElement;
-  const eduElement = document.getElementById("edu") as HTMLTextAreaElement;
-  const expElement = document.getElementById("experience") as HTMLTextAreaElement;
+  const eduElement = document.getElementById("edu") as HTMLInputElement;
+  const expElement = document.getElementById("experience") as HTMLInputElement;
+  const skillElement = document.getElementById("skills") as HTMLInputElement;
   const userEl = document.getElementById("username") as HTMLInputElement;
 
-  if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && userEl) {
+  if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
     const name = nameElement.value;
     const namesec = nameElementsec.value;
     const em = emailElement.value;
     const ph = phoneElement.value;
     const edu = eduElement.value;
     const experience = expElement.value;
+    const skills = skillElement.value;
     const useName = userEl.value;
-
-    // Collecting skills from the skills list
-    const skillsList = document.getElementById("skills-list") as HTMLUListElement;
-    const skills = Array.from(skillsList.children).map(li => li.textContent).join(", ") || "No skills added.";
 
     const unq = `resume/${useName.replace(/\s+/g, '_')}_cv.html`;
 
@@ -29,26 +27,24 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
     const proFl = profileInput.files?.[0];
     const proURL = proFl ? URL.createObjectURL(proFl) : "";
 
+    // Corrected template for image
     const output = `
-        <div class="resume-container">
+      <h2>Resume</h2>
       ${proURL ? `<img src="${proURL}" alt="profile" class="profile">` : ''}
-
-      <div class="info-section">
-        <p><strong><i class="fas fa-user"></i> Name:</strong> ${name} ${namesec}</p>
-        <p><strong><i class="fas fa-envelope"></i> Email:</strong> ${em}</p>
+       <p><strong><i class="fas fa-user"></i> Name:</strong> ${name} ${namesec}</p>
+       <p><strong><i class="fas fa-envelope"></i> Email:</strong>${em}</p>
         <p><strong><i class="fas fa-phone"></i> Phone:</strong> ${ph}</p>
-      </div>
-
+    
       <h3><i class="fas fa-graduation-cap"></i> Education</h3>
       <p>${edu}</p>
 
-      <h3><i class="fas fa-briefcase"></i> Experience</h3>
+       <h3><i class="fas fa-briefcase"></i> Experience</h3>
       <p>${experience}</p>
-
-      <h3><i class="fas fa-code"></i> Skills</h3>
-      <p>${skills || 'No skills added'}</p>
+   <h3><i class="fas fa-code"></i> Skills</h3>
+      <p>${skills}</p>
     </div>
-    `;
+    
+  `;
 
     const elres = document.getElementById("output");
     if (elres) {
@@ -110,31 +106,28 @@ function makeEdit() {
 }
 
 function downloadResumeAsPDF() {
-  const output = document.getElementById("output");
-  if (output) {
-    const pdf = new jsPDF();
-    pdf.html(output, {
-      callback: function (doc: any) {
-        doc.save('resume.pdf');
-      }
-    });
+  const resumeElement = document.getElementById("output");
+  const options = {
+    margin: 1,
+    filename: 'Resume.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  if (resumeElement) {
+    // Ensure html2pdf is included
+    (window as any).html2pdf().from(resumeElement).set(options).save();
+  } else {
+    console.error('Resume content is missing.');
   }
 }
 
-document.getElementById('add-skill-btn')?.addEventListener('click', function () {
-  const skillInput = document.getElementById('skill-input') as HTMLInputElement | null;
-  const skillsList = document.getElementById("skills-list") as HTMLUListElement | null;
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle: any = document.getElementById('menuToggle');
+  const menu: any = document.getElementById('menu');
 
-  if (skillInput && skillsList) {
-    const skillValue = skillInput.value.trim();
-
-    if (skillValue) {
-      const li = document.createElement('li');
-      li.textContent = skillValue;
-      skillsList.appendChild(li);
-      skillInput.value = ''; 
-    } else {
-      alert('Please enter a skill before adding.');
-    }
-  }
+  menuToggle.addEventListener('click', function () {
+      menu.classList.toggle('active');
+  });
 });
