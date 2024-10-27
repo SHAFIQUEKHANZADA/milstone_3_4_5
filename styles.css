@@ -74,13 +74,26 @@ nav {
         border: none;
     }
 
+    .butDiv button {
+        padding: 10px 4px;
+        border-radius: 6px;
+        background-color: transparent;
+        border: 1px solid orange;
+        font-size: 1.3vmax;
+        font-weight: 300;
+        background: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        color: #F27222;
+    }
+
     
     .menu {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 50px;
-        right: 10px;
+        right: 5px;
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 8px;
@@ -100,17 +113,25 @@ nav {
     .divUl ul.menu.active {
         display: flex;
         gap: 1px;
-        width: 100px;
+        width: 180px;
         text-align: left; 
-        height: auto; 
+        height: 200px; 
         padding: 10px;  
+    }
+    .divUl ul li a {
+        font-size: 2.4vmax;
+        font-weight: 100;
+        text-decoration: none;
+        color: black;
     }
     
     .menu li {
         padding: 0px 12px;  
         text-align: left;  
         width: 100%;  
+        font-size: 28px;
     }
+    
     
 }
 
