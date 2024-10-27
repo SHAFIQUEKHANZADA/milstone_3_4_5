@@ -77,6 +77,18 @@ nav {
         border: none;
     }
 
+    .butDiv button {
+        padding: 10px 4px;
+        border-radius: 6px;
+        background-color: transparent;
+        border: 1px solid orange;
+        font-size: 1.3vmax;
+        font-weight: 300;
+        background: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        color: #F27222;
+    }
 
     .menu {
         display: none;
