@@ -296,6 +296,10 @@ section {
         justify-content: center;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
+    .tempDivTwo {
+        width: 89%;
+        margin: 0 auto;
+    }
 
 }
 
