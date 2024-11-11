@@ -4,438 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milestone 1</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="dynamic.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 20px;
-            padding: 10px 0;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            z-index: 1000;
-        }
-
-        .divUl ul {
-            display: flex;
-            list-style-type: none;
-            gap: 30px;
-        }
-
-        .divUl ul li a {
-            font-size: 1.5vmax;
-            font-weight: 100;
-            text-decoration: none;
-            color: black;
-        }
-
-        .divUl ul li a:hover {
-            color: #F27222;
-            font-size: 1.5vmax;
-            font-weight: 300;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .butDiv button {
-            padding: 15px 18px;
-            border-radius: 10px;
-            background-color: transparent;
-            border: 1px solid orange;
-            font-size: 1vmax;
-            font-weight: 300;
-            background: white;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            color: #F27222;
-        }
-
-        .butDiv button:hover {
-            background: linear-gradient(to right, #F27222, #F0682F, #E83C68);
-            color: white;
-            border: none;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 600px) {
-            .menu-icon {
-                display: block;
-            }
-
-            .fir {
-                margin-right: 15vw;
-            }
-
-            .fir img {
-                width: 140px;
-                height: 30px;
-            }
-
-            #menuToggle {
-                background-color: white;
-                border: none;
-            }
-
-            .butDiv button {
-                padding: 10px 4px;
-                border-radius: 6px;
-                background-color: transparent;
-                border: 1px solid orange;
-                font-size: 1.3vmax;
-                font-weight: 300;
-                background: white;
-                transition: all 0.3s ease;
-                cursor: pointer;
-                color: #F27222;
-            }
-
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                right: 10px;
-                background-color: white;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                position: absolute;
-                top: 50px;
-                right: 5px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                text-align: left;
-                padding: 10px;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .divUl ul {
-                display: none;
-            }
-
-            .divUl ul.menu.active {
-                display: flex;
-                gap: 1px;
-                width: 200px;
-                text-align: left;
-                height: 200px;
-                padding: 10px 0px;
-            }
-
-            .divUl ul li a {
-                font-size: 2.5vmax;
-                font-weight: 100;
-                text-decoration: none;
-                color: black;
-            }
-
-            .menu li {
-                padding: 0px 12px;
-                text-align: left;
-                width: 100%;
-            }
-
-        }
-
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .input-container,
-        .output-container {
-            flex: 1;
-            min-width: 300px;
-            max-width: 100%;
-        }
-
-        .input-container {
-            margin-right: 20px;
-        }
-
-        .output-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: #f9f9f9;
-            overflow-y: auto;
-        }
-
-        fieldset {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #form {
-            flex: 1;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 5%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #output {
-            flex: 1;
-            margin-top: 5%;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f8f8f8;
-            overflow-y: auto;
-        }
-
-        .flex-container {
-            display: flex;
-            gap: 30px;
-        }
-
-        .flex-item {
-            flex: 1;
-        }
-
-        fieldset {
-            margin-bottom: 15px;
-            border: none;
-        }
-
-        #add-skill-btn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #add-skill-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .genBtn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .genBtn:hover {
-            background-color: #0056b3;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-                margin-top: 10%;
-                gap: 10px;
-            }
-        }
-
-        .profile {
-            max-width: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        
-  .mainDiv {
-    display: flex;
-    width: auto;
-    height: 600px;
-    margin: 50px auto;
-    /* background-color: #fff; */
-    /* border-radius: 10px; */
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 640px) {
-    .name {
-        font-size: 14px;
-    }
-    .resume-section h3 {
-        color: #2980b9;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        width: fit-content;
-        font-size: 15px;
-    }
-    .mainDiv {
-        height: 400px;
-        margin: 10px auto;
-    }
-    .right-section {
-        width: 70%;
-        padding: 2px;  
-        background-color: #ffffff;
-    }
-
-    .profile-picture {
-        width: 40vw; /* Resize the image for smaller screens */
-        height: 40vw;
-        border-radius: 50%;
-        border: 1px solid #ffffff;
-        overflow: hidden;
-        margin-bottom: 15px;
-    }
-    
-    .profile-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    #output {
-        height: 460px;
-        padding: 6px;
-    }
-
-    .left-section {
-        padding: 2px;  
-        padding-left: 0px;
-        padding-right: 0px;
-        width: 100%;
-    }
-
-    .contact-info ul {
-        font-size: 200px;
-    }
-}
-
-.left-section {
-    width: 30%;
-    background-color: rgb(22, 56, 83);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    padding-left: 2px;
-    padding-right: 2px;
-    text-align: center;
-}
-
-.profile-picture {
-    width: 9vmax;
-    height: 9vmax;
-    border-radius: 50%;
-    border: 4px solid #ffffff;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.name h1 {
-    font-size: 1.8vw;
-    margin-bottom: 15px;
-    color: white;
-}
-
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    text-align: left;
-    font-size: 0.9vmax;
-}
-
-.skill-section {
-    align-items: start;
-    display: flex;
-    justify-content: left;
-}
-
-.contact-info li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.contact-info i {
-    margin-right: 10px;
-}
-
-.right-section {
-    width: 70%;
-    padding: 10px;
-    background-color: #ffffff;
-}
-
-.resume-section {
-    margin-bottom: 20px;
-}
-
-.resume-section h3 {
-    color: #2980b9;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    width: fit-content;
-}
-
-.resume-section p {
-    margin-bottom: 10px;
-}
-
-    </style>
 </head>
 
 <body>
+
     <nav>
         <div class="fir">
             <img src="/pictures/ty.svg" alt="logo" width="170" height="50">
         </div>
         <div class="divUl">
             <button id="menuToggle" class="menu-icon" aria-label="Toggle Menu">
-                <i class="ri-menu-line"></i>
+                <!-- <i class="ri-menu-line"></i> -->
+                 <img src="/pictures/menu.png" alt="men" width="30px" height="20px">
             </button>
             <ul id="menu" class="menu">
                 <li><a href="/index.html">Home</a></li>
@@ -448,67 +32,76 @@
             <button class="navBtn" id="openModal">Build My Resume</button>
         </div>
     </nav>
-    <div class="container">
-
-        <form id="form">
-            <fieldset>
-                <legend>Personal Information</legend>
-                <div class="flex-container">
-                    <div class="flex-item">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name"
-                            required>
+    <div class="contain">
+        <div class="input-container">
+            <form id="form">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name"
+                                required>
+                        </div>
+                        <div class="flex-item">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Enter your last name"
+                                required>
+                        </div>
                     </div>
-                    <div class="flex-item">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="em" name="email" placeholder="Enter your email" required>
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="ph" name="phone" placeholder="Enter your phone" required>
+
+                    <label for="profile">Profile Picture</label>
+                    <input type="file" id="pro" name="profile" accept="image/*" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Education</legend>
+                    <textarea name="education" id="edu" rows="3" required
+                        placeholder="Describe your education"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Experience</legend>
+                    <textarea name="experience" id="experience" rows="3" required
+                        placeholder="Describe your experience"></textarea>
+                </fieldset>
+
+                <fieldset id="skills-section">
+                    <legend>Skills</legend>
+                    <div id="skills-container">
+                        <input type="text" id="skill-input" placeholder="Enter a skill" />
+                        <button type="button" id="add-skill-btn">Add Skill</button>
                     </div>
-                </div>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="em" name="email" placeholder="Enter your email" required>
-
-                <label for="phone">Phone</label>
-                <input type="tel" id="ph" name="phone" placeholder="Enter your phone" required>
-
-                <label for="profile">Profile Picture</label>
-                <input type="file" id="pro" name="profile" accept="image/*" required>
-            </fieldset>
-
-            <fieldset id="education-section">
-                <legend>Education</legend>
-                <textarea name="education" id="edu" rows="3" required
-                    placeholder="Tell something about your education"></textarea>
-            </fieldset>
+                    <ul id="skills-list"></ul>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Portfolio/LinkedIn Link(optional)</legend>
+                    <label for="link">LinkedIn:</label>
+                    <input type="url" id="link" name="link" placeholder="Enter your LinkedIn URL" required>
+                  
+                    <label for="link">Portfolio:</label>
+                    <input type="url" id="link" name="link" placeholder="Enter your portfolio URL" required>
+                </fieldset>
+    
 
 
-            <fieldset id="experience-section">
-                <legend>Experience</legend>
-                <textarea name="experience" id="experience" rows="3" required
-                    placeholder="Tell something about your experience"></textarea>
-            </fieldset>
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
 
-            <fieldset id="skills-section">
-                <legend>Skills</legend>
-                <div id="skills-container">
-                    <input type="text" id="skill-input" placeholder="Enter a skill" />
-                    <button type="button" id="add-skill-btn">Add Skill</button>
-                </div>
-                <ul id="skills-list"></ul>
-            </fieldset>
-
-
-            <button class="genBtn" type="submit">Generate</button>
-        </form>
-
-
-        <div id="output">
-            <h2>Generated Resume</h2>
-            <p>Fill out the form to see your resume here.</p>
+        <div class="output-container">
+            <div id="output"></div>
         </div>
     </div>
 
-    <script src="/dynamic.js"></script>
+    <script src="/edit.js"></script>
 </body>
 
 </html>

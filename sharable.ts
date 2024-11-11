@@ -10,6 +10,8 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const expElement = document.getElementById("experience") as HTMLInputElement;
   const skillElement = document.getElementById("skills") as HTMLInputElement;
   const userEl = document.getElementById("username") as HTMLInputElement;
+  const linkLinkden = document.getElementById("link") as HTMLInputElement;
+  const linkPort = document.getElementById("link") as HTMLInputElement;
 
   if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
     const name = nameElement.value;
@@ -20,6 +22,8 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
     const experience = expElement.value;
     const skills = skillElement.value;
     const useName = userEl.value;
+    const linkdin = linkLinkden.value;
+    const portfolio = linkPort.value;
 
     const unq = `resume/${useName.replace(/\s+/g, '_')}_cv.html`;
 
@@ -31,7 +35,7 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
     const output = `
     <div class="resume-container">
       <div class="mainDiv">
-        <!-- Left side (Profile & Contact Info) -->
+         <!-- Left side (Profile & Contact Info) -->
         <div class="left-section">
           ${proURL ? `<div class="profile-picture"><img src="${proURL}" alt="Profile Picture"></div>` : ''}
           <h2 class="name">${name} ${namesec}</h2>
@@ -40,6 +44,18 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
               <li><i class="fas fa-envelope"></i> ${em}</li>
               <li><i class="fas fa-phone"></i> ${ph}</li>
             </ul>
+          </section>
+
+           <section class="profile-link">
+            <h3>Links: </h3>
+            <div class="links">
+            <p class="linkIcon"><i class="fa-brands fa-linkedin"></i>
+            <a href="${linkdin}" target="_blank">${linkdin ? linkdin : 'No link provided'}</a>
+             </p>
+            <p class="linkIcon"><i class="fa-solid fa-link"></i> 
+            <a href="${portfolio}" target="_blank">${portfolio ? portfolio : 'No link provided'}</a>
+            </p>
+            </div>
           </section>
         </div>
 

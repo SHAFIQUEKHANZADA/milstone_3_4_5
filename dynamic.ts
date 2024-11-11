@@ -11,6 +11,8 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
   const eduElement = document.getElementById("edu") as HTMLInputElement | null;
   const expElement = document.getElementById("experience") as HTMLInputElement | null;
   const skillsList = document.getElementById("skills-list") as HTMLUListElement | null;
+  const linkLinkden = document.getElementById("link") as HTMLInputElement;
+  const linkPort = document.getElementById("link") as HTMLInputElement;
 
   // Check if all necessary elements are present
   if (profileInput && firstElement && lastElement && emailElement && phoneElement && eduElement && expElement && skillsList) {
@@ -20,6 +22,8 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
     const ph = phoneElement.value;
     const edu = eduElement.value;
     const experience = expElement.value;
+    const linkdin = linkLinkden.value;
+    const portfolio = linkPort.value;
 
     const skills = Array.from(skillsList.children).map(li => li.textContent || '').join(', ');
 
@@ -38,6 +42,18 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
               <li><i class="fas fa-envelope"></i> ${em}</li>
               <li><i class="fas fa-phone"></i> ${ph}</li>
             </ul>
+          </section>
+
+                  <section class="profile-link">
+            <h3>Links: </h3>
+            <div class="links">
+            <p class="linkIcon"><i class="fa-brands fa-linkedin"></i>
+            <a href="${linkdin}" target="_blank">${linkdin ? linkdin : 'No link provided'}</a>
+             </p>
+            <p class="linkIcon"><i class="fa-solid fa-link"></i> 
+            <a href="${portfolio}" target="_blank">${portfolio ? portfolio : 'No link provided'}</a>
+            </p>
+            </div>
           </section>
         </div>
 

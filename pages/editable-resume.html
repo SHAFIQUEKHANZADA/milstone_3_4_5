@@ -72,12 +72,25 @@
                         placeholder="Describe your experience"></textarea>
                 </fieldset>
 
-                <fieldset>
+                <fieldset id="skills-section">
                     <legend>Skills</legend>
-                    <input type="text" id="skill-input" placeholder="Enter a skill">
-                    <button type="button" id="add-skill-btn">Add Skill</button>
+                    <div id="skills-container">
+                        <input type="text" id="skill-input" placeholder="Enter a skill" />
+                        <button type="button" id="add-skill-btn">Add Skill</button>
+                    </div>
                     <ul id="skills-list"></ul>
                 </fieldset>
+                
+                <fieldset>
+                    <legend>Portfolio/LinkedIn Link(optional)</legend>
+                    <label for="link">LinkedIn:</label>
+                    <input type="url" id="link" name="link" placeholder="Enter your LinkedIn URL" required>
+                  
+                    <label for="link">Portfolio:</label>
+                    <input type="url" id="link" name="link" placeholder="Enter your portfolio URL" required>
+                </fieldset>
+    
+
 
                 <button type="submit">Generate Resume</button>
             </form>

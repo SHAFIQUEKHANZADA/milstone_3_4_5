@@ -9,6 +9,8 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const eduInput = document.getElementById('edu') as HTMLInputElement;
   const expInput = document.getElementById('experience') as HTMLInputElement;
   const skillsList = document.getElementById('skills-list') as HTMLUListElement;
+  const linkLinkden = document.getElementById("link") as HTMLInputElement;
+  const linkPort = document.getElementById("link") as HTMLInputElement;
 
   const skills = Array.from(skillsList.children).map(li => li.textContent || '').join(', ');
 
@@ -27,6 +29,18 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
               <li><i class="fas fa-envelope"></i> ${emailInput.value}</li>
               <li><i class="fas fa-phone"></i> ${phoneInput.value}</li>
             </ul>
+          </section>
+
+            <section class="profile-link">
+            <h3>Links: </h3>
+            <div class="links">
+            <p class="linkIcon"><i class="fa-brands fa-linkedin"></i>
+            <a href="${linkLinkden.value}" target="_blank">${linkLinkden.value ? linkLinkden.value : 'No link provided'}</a>
+             </p>
+            <p class="linkIcon"><i class="fa-solid fa-link"></i> 
+            <a href="${linkPort.value}" target="_blank">${linkPort.value ? linkPort.value : 'No link provided'}</a>
+            </p>
+            </div>
           </section>
         </div>
 

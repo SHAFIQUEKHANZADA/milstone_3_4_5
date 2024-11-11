@@ -341,6 +341,7 @@ ul {
     padding-left: 2px;
     padding-right: 2px;
     text-align: center;
+    position: relative;
 }
 
 .profile-picture {
@@ -408,4 +409,65 @@ ul {
 
 .resume-section p {
     margin-bottom: 10px;
+}
+
+
+
+.profile-link {
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+ 
+.linkIcon {
+    display: flex;
+    align-items: center; 
+    gap: 6px; 
+}
+
+.linkIcon i {
+    font-size: 16px; 
+    color: #0e76a8;  
+}
+
+.linkIcon a {
+    text-decoration: none;  
+    color: white;  
+    font-size: 8px; 
+}
+
+@media (max-width: 640px) {
+
+ 
+.profile-link {
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 6px;
+    text-align: left;
+    font-size: 6px;
+}
+ 
+    
+.linkIcon {
+    display: flex;
+    align-items: center; 
+    gap: 2px; 
+}
+
+.linkIcon i {
+    font-size: 8px; 
+    color: white;  
+}
+
+.linkIcon a {
+    text-decoration: none;  
+    color: white;  
+    font-size: 4px; 
+}
+
 }

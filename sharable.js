@@ -11,6 +11,8 @@ var _a;
     var expElement = document.getElementById("experience");
     var skillElement = document.getElementById("skills");
     var userEl = document.getElementById("username");
+    var linkLinkden = document.getElementById("link");
+    var linkPort = document.getElementById("link");
     if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
         var name_1 = nameElement.value;
         var namesec = nameElementsec.value;
@@ -20,12 +22,14 @@ var _a;
         var experience = expElement.value;
         var skills = skillElement.value;
         var useName = userEl.value;
+        var linkdin = linkLinkden.value;
+        var portfolio = linkPort.value;
         var unq_1 = "resume/".concat(useName.replace(/\s+/g, '_'), "_cv.html");
         // Handle profile picture
         var proFl = (_a = profileInput.files) === null || _a === void 0 ? void 0 : _a[0];
         var proURL = proFl ? URL.createObjectURL(proFl) : "";
         // Corrected template for image
-        var output = "\n    <div class=\"resume-container\">\n      <div class=\"mainDiv\">\n        <!-- Left side (Profile & Contact Info) -->\n        <div class=\"left-section\">\n          ".concat(proURL ? "<div class=\"profile-picture\"><img src=\"".concat(proURL, "\" alt=\"Profile Picture\"></div>") : '', "\n          <h2 class=\"name\">").concat(name_1, " ").concat(namesec, "</h2>\n          <section class=\"contact-info\">\n            <ul>\n              <li><i class=\"fas fa-envelope\"></i> ").concat(em, "</li>\n              <li><i class=\"fas fa-phone\"></i> ").concat(ph, "</li>\n            </ul>\n          </section>\n        </div>\n\n        <!-- Right side (Experience, Education, Skills) -->\n        <div class=\"right-section\">\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-briefcase\"></i> Work Experience</h3>\n            <p>").concat(experience || 'No work experience provided', "</p>\n          </section>\n          \n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n            <p>").concat(edu || 'No education details provided', "</p>\n          </section>\n\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-code\"></i> Skills</h3>\n            <p>").concat(skills || 'No skills added', "</p>\n          </section>\n        </div>\n      </div>\n    </div>\n  ");
+        var output = "\n    <div class=\"resume-container\">\n      <div class=\"mainDiv\">\n         <!-- Left side (Profile & Contact Info) -->\n        <div class=\"left-section\">\n          ".concat(proURL ? "<div class=\"profile-picture\"><img src=\"".concat(proURL, "\" alt=\"Profile Picture\"></div>") : '', "\n          <h2 class=\"name\">").concat(name_1, " ").concat(namesec, "</h2>\n          <section class=\"contact-info\">\n            <ul>\n              <li><i class=\"fas fa-envelope\"></i> ").concat(em, "</li>\n              <li><i class=\"fas fa-phone\"></i> ").concat(ph, "</li>\n            </ul>\n          </section>\n\n           <section class=\"profile-link\">\n            <h3>Links: </h3>\n            <div class=\"links\">\n            <p class=\"linkIcon\"><i class=\"fa-brands fa-linkedin\"></i>\n            <a href=\"").concat(linkdin, "\" target=\"_blank\">").concat(linkdin ? linkdin : 'No link provided', "</a>\n             </p>\n            <p class=\"linkIcon\"><i class=\"fa-solid fa-link\"></i> \n            <a href=\"").concat(portfolio, "\" target=\"_blank\">").concat(portfolio ? portfolio : 'No link provided', "</a>\n            </p>\n            </div>\n          </section>\n        </div>\n\n        <!-- Right side (Experience, Education, Skills) -->\n        <div class=\"right-section\">\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-briefcase\"></i> Work Experience</h3>\n            <p>").concat(experience || 'No work experience provided', "</p>\n          </section>\n          \n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n            <p>").concat(edu || 'No education details provided', "</p>\n          </section>\n\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-code\"></i> Skills</h3>\n            <p>").concat(skills || 'No skills added', "</p>\n          </section>\n        </div>\n      </div>\n    </div>\n  ");
         var elres = document.getElementById("output");
         if (elres) {
             elres.innerHTML = output;
