@@ -10,8 +10,8 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const expElement = document.getElementById("experience") as HTMLInputElement;
   const skillElement = document.getElementById("skills") as HTMLInputElement;
   const userEl = document.getElementById("username") as HTMLInputElement;
-  const linkLinkden = document.getElementById("link") as HTMLInputElement;
-  const linkPort = document.getElementById("link") as HTMLInputElement;
+  const linkLinkden = document.getElementById("linkD") as HTMLInputElement;
+  const linkPort = document.getElementById("linkPort") as HTMLInputElement;
 
   if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
     const name = nameElement.value;

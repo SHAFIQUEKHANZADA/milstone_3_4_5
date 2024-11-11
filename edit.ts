@@ -9,8 +9,8 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const eduInput = document.getElementById('edu') as HTMLInputElement;
   const expInput = document.getElementById('experience') as HTMLInputElement;
   const skillsList = document.getElementById('skills-list') as HTMLUListElement;
-  const linkLinkden = document.getElementById("link") as HTMLInputElement;
-  const linkPort = document.getElementById("link") as HTMLInputElement;
+  const linkLinkden = document.getElementById("linkD") as HTMLInputElement;
+  const linkPort = document.getElementById("linkPort") as HTMLInputElement;
 
   const skills = Array.from(skillsList.children).map(li => li.textContent || '').join(', ');
 
@@ -42,6 +42,16 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
             </p>
             </div>
           </section>
+
+              <section class="skill-section">
+  <h3><i class="fas fa-code"></i> Skills</h3> 
+  <div>
+  ${skills
+    ? `<ul class="skills-list">${skills.split(',').map(skill => `<li>${skill.trim()}</li>`).join('')}</ul>`
+    : 'No skills added'
+  }
+    </div>
+</section>
         </div>
 
         <!-- Right side (Experience, Education, Skills) -->
@@ -55,11 +65,7 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
             <p>${eduInput.value || 'No education details provided'}</p>
           </section>
-
-          <section class="resume-section">
-            <h3><i class="fas fa-code"></i> Skills</h3>
-            <p>${skills || 'No skills added'}</p>
-          </section>
+ 
         </div>
       </div>
     </div>

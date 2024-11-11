@@ -11,8 +11,8 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
   const eduElement = document.getElementById("edu") as HTMLInputElement | null;
   const expElement = document.getElementById("experience") as HTMLInputElement | null;
   const skillsList = document.getElementById("skills-list") as HTMLUListElement | null;
-  const linkLinkden = document.getElementById("link") as HTMLInputElement;
-  const linkPort = document.getElementById("link") as HTMLInputElement;
+  const linkLinkden = document.getElementById("linkD") as HTMLInputElement;
+  const linkPort = document.getElementById("linkPort") as HTMLInputElement;
 
   // Check if all necessary elements are present
   if (profileInput && firstElement && lastElement && emailElement && phoneElement && eduElement && expElement && skillsList) {
@@ -55,6 +55,16 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
             </p>
             </div>
           </section>
+
+              <section class="skill-section">
+  <h3><i class="fas fa-code"></i> Skills</h3> 
+  <div>
+  ${skills
+    ? `<ul class="skills-list">${skills.split(',').map(skill => `<li>${skill.trim()}</li>`).join('')}</ul>`
+    : 'No skills added'
+  }
+    </div>
+</section>
         </div>
 
         <!-- Right side (Experience, Education, Skills) -->
@@ -67,11 +77,6 @@ document.getElementById("form")?.addEventListener("submit", function (event: Eve
           <section class="resume-section">
             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
             <p>${edu || 'No education details provided'}</p>
-          </section>
-
-          <section class="resume-section">
-            <h3><i class="fas fa-code"></i> Skills</h3>
-            <p>${skills || 'No skills added'}</p>
           </section>
         </div>
       </div>

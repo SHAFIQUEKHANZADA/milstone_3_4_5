@@ -11,8 +11,8 @@ var _a;
     var expElement = document.getElementById("experience");
     var skillElement = document.getElementById("skills");
     var userEl = document.getElementById("username");
-    var linkLinkden = document.getElementById("link");
-    var linkPort = document.getElementById("link");
+    var linkLinkden = document.getElementById("linkD");
+    var linkPort = document.getElementById("linkPort");
     if (profileInput && nameElement && nameElementsec && emailElement && phoneElement && eduElement && expElement && skillElement && userEl) {
         var name_1 = nameElement.value;
         var namesec = nameElementsec.value;
