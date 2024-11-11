@@ -240,3 +240,153 @@ ul {
         margin-top: 25%;
     }
 }
+
+
+
+/* resume */
+
+ 
+.mainDiv {
+    display: flex;
+    width: auto;
+    height: 600px;
+    margin: 50px auto;
+    /* background-color: #fff; */
+    /* border-radius: 10px; */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+    .name {
+        font-size: 14px;
+    }
+    .resume-section h3 {
+        color: #2980b9;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        width: fit-content;
+        font-size: 15px;
+    }
+    .mainDiv {
+        height: 400px;
+        margin: 10px auto;
+    }
+    .right-section {
+        width: 70%;
+        padding: 2px;  
+        background-color: #ffffff;
+    }
+
+    .profile-picture {
+        width: 40vw; /* Resize the image for smaller screens */
+        height: 40vw;
+        border-radius: 50%;
+        border: 1px solid #ffffff;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+    .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #output {
+        height: 460px;
+        padding: 6px;
+    }
+
+    .left-section {
+        padding: 2px;  
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
+    }
+
+    .contact-info ul {
+        font-size: 200px;
+    }
+}
+
+.left-section {
+    width: 30%;
+    background-color: rgb(22, 56, 83);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 9vmax;
+    height: 9vmax;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name h1 {
+    font-size: 1.8vw;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    font-size: 0.9vmax;
+}
+
+.skill-section {
+    align-items: start;
+    display: flex;
+    justify-content: left;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.right-section {
+    width: 70%;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-section h3 {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.resume-section p {
+    margin-bottom: 10px;
+}

@@ -15,23 +15,42 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
   const profileFile = profileInput.files?.[0];
   const profileURL = profileFile ? URL.createObjectURL(profileFile) : "";
 
-  const outputHTML = `
-      <h2>Resume</h2>
-      ${profileURL ? `<img src="${profileURL}" alt="profile" class="profile">` : ''}
-       <p><strong><i class="fas fa-user"></i> Name:</strong> ${firstNameInput.value} ${lastNameInput.value}</p>
-       <p><strong><i class="fas fa-envelope"></i> Email:</strong> ${emailInput.value}</p>
-        <p><strong><i class="fas fa-phone"></i> Phone:</strong> ${phoneInput.value}</p>
-    
-      <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-      <p>${eduInput.value}</p>
+  const outputHTML = ` 
+    <div class="resume-container">
+      <div class="mainDiv">
+        <!-- Left side (Profile & Contact Info) -->
+        <div class="left-section">
+          ${profileURL ? `<div class="profile-picture"><img src="${profileURL}" alt="Profile Picture"></div>` : ''}
+          <h2 class="name">${firstNameInput.value} ${lastNameInput.value}</h2>
+          <section class="contact-info">
+            <ul>
+              <li><i class="fas fa-envelope"></i> ${emailInput.value}</li>
+              <li><i class="fas fa-phone"></i> ${phoneInput.value}</li>
+            </ul>
+          </section>
+        </div>
 
-       <h3><i class="fas fa-briefcase"></i> Experience</h3>
-      <p>${expInput.value}</p>
-   <h3><i class="fas fa-code"></i> Skills</h3>
-      <p>${skills || 'No skills added'}</p>
+        <!-- Right side (Experience, Education, Skills) -->
+        <div class="right-section">
+          <section class="resume-section">
+            <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+            <p>${expInput.value || 'No work experience provided'}</p>
+          </section>
+          
+          <section class="resume-section">
+            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <p>${eduInput.value || 'No education details provided'}</p>
+          </section>
+
+          <section class="resume-section">
+            <h3><i class="fas fa-code"></i> Skills</h3>
+            <p>${skills || 'No skills added'}</p>
+          </section>
+        </div>
+      </div>
     </div>
-    
   `;
+    
 
   const outputDiv = document.getElementById("output");
   if (outputDiv) {

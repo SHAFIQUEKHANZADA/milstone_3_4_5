@@ -15,11 +15,11 @@ nav {
 .divUl ul {
     display: flex;
     list-style-type: none;
-    gap: 30px;
+    gap: 19px;
 }
 
 .divUl ul li a {
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
     font-weight: 100;
     text-decoration: none;
     color: black;
@@ -27,7 +27,7 @@ nav {
 
 .divUl ul li a:hover {
     color: #F27222;
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
     font-weight: 300;
     text-decoration: none;
     cursor: pointer;
