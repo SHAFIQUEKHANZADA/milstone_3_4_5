@@ -278,8 +278,6 @@ ul {
 
 
 /* resume */
-
- 
   .mainDiv {
     display: flex;
     width: auto;
@@ -422,6 +420,35 @@ ul {
     width: fit-content;
 }
 
+.skill-section {
+    margin-bottom: 10px;
+    padding-right: 65px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-section h3 {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.skills-list {
+    list-style-type: disc; /* Ensures the dots (bullet points) are displayed */
+    padding-left: 20px; /* Adds padding to the left to align the list items properly */
+    margin-top: 10px; /* Adds space between the heading and the list */
+}
+
+.skills-list li {
+    color: white; /* Ensures the skills are white */
+    font-size: 16px; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Adds space between list items */
+    text-align: left;
+}
+
+
 .resume-section p {
     margin-bottom: 10px;
 }
@@ -483,6 +510,36 @@ ul {
     text-decoration: none;  
     color: white;  
     font-size: 4px; 
+}
+
+
+.skill-section {
+    margin-bottom: 10px;
+    padding-right: 26px;
+    display: flex;
+    font-size: 10px;
+    flex-direction: column;
+}
+
+.skill-section h3 {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.skills-list {
+    list-style-type: disc; /* Ensures the dots (bullet points) are displayed */
+    padding-left: 12px; /* Adds padding to the left to align the list items properly */
+    margin-top: 2px; /* Adds space between the heading and the list */
+}
+
+.skills-list li {
+    color: white; /* Ensures the skills are white */
+    font-size: 8.5px; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Adds space between list items */
+    text-align: left;
 }
 
 }

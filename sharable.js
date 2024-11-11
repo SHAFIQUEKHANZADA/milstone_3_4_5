@@ -29,7 +29,28 @@ var _a;
         var proFl = (_a = profileInput.files) === null || _a === void 0 ? void 0 : _a[0];
         var proURL = proFl ? URL.createObjectURL(proFl) : "";
         // Corrected template for image
-        var output = "\n    <div class=\"resume-container\">\n      <div class=\"mainDiv\">\n         <!-- Left side (Profile & Contact Info) -->\n        <div class=\"left-section\">\n          ".concat(proURL ? "<div class=\"profile-picture\"><img src=\"".concat(proURL, "\" alt=\"Profile Picture\"></div>") : '', "\n          <h2 class=\"name\">").concat(name_1, " ").concat(namesec, "</h2>\n          <section class=\"contact-info\">\n            <ul>\n              <li><i class=\"fas fa-envelope\"></i> ").concat(em, "</li>\n              <li><i class=\"fas fa-phone\"></i> ").concat(ph, "</li>\n            </ul>\n          </section>\n\n           <section class=\"profile-link\">\n            <h3>Links: </h3>\n            <div class=\"links\">\n            <p class=\"linkIcon\"><i class=\"fa-brands fa-linkedin\"></i>\n            <a href=\"").concat(linkdin, "\" target=\"_blank\">").concat(linkdin ? linkdin : 'No link provided', "</a>\n             </p>\n            <p class=\"linkIcon\"><i class=\"fa-solid fa-link\"></i> \n            <a href=\"").concat(portfolio, "\" target=\"_blank\">").concat(portfolio ? portfolio : 'No link provided', "</a>\n            </p>\n            </div>\n          </section>\n        </div>\n\n        <!-- Right side (Experience, Education, Skills) -->\n        <div class=\"right-section\">\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-briefcase\"></i> Work Experience</h3>\n            <p>").concat(experience || 'No work experience provided', "</p>\n          </section>\n          \n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n            <p>").concat(edu || 'No education details provided', "</p>\n          </section>\n\n          <section class=\"resume-section\">\n            <h3><i class=\"fas fa-code\"></i> Skills</h3>\n            <p>").concat(skills || 'No skills added', "</p>\n          </section>\n        </div>\n      </div>\n    </div>\n  ");
+        var output = "\n<div class=\"resume-container\">\n  <div class=\"mainDiv\">\n     <!-- Left side (Profile & Contact Info) -->\n    <div class=\"left-section\">\n      ".concat(proURL ? "<div class=\"profile-picture\"><img src=\"".concat(proURL, "\" alt=\"Profile Picture\"></div>") : '', "\n      <h2 class=\"name\">").concat(name_1, " ").concat(namesec, "</h2>\n      <section class=\"contact-info\">\n        <ul>\n          <li><i class=\"fas fa-envelope\"></i> ").concat(em, "</li>\n          <li><i class=\"fas fa-phone\"></i> ").concat(ph, "</li>\n        </ul>\n      </section>\n\n      <section class=\"profile-link\">\n        <h3>Links: </h3>\n        <div class=\"links\">\n          <p class=\"linkIcon\"><i class=\"fa-brands fa-linkedin\"></i>\n          <a href=\"").concat(linkdin, "\" target=\"_blank\">").concat(linkdin ? linkdin : 'No link provided', "</a>\n          </p>\n          <p class=\"linkIcon\"><i class=\"fa-solid fa-link\"></i> \n          <a href=\"").concat(portfolio, "\" target=\"_blank\">").concat(portfolio ? portfolio : 'No link provided', "</a>\n          </p>\n        </div>\n      </section>\n\n    <section class=\"skill-section\">\n  <h3><i class=\"fas fa-code\"></i> Skills</h3> \n  <div>\n  ").concat(skills
+            ? "<ul class=\"skills-list\">".concat(skills.split(',').map(function (skill) { return "<li>".concat(skill.trim(), "</li>"); }).join(''), "</ul>")
+            : 'No skills added', "\n    </div>\n</section>\n\n    </div>\n\n    <!-- Right side (Experience, Education, Skills) -->\n    <div class=\"right-section\">\n      <section class=\"resume-section\">\n        <h3><i class=\"fas fa-briefcase\"></i> Work Experience</h3>\n        <p>").concat(experience || 'No work experience provided', "</p>\n      </section>\n      \n      <section class=\"resume-section\">\n        <h3><i class=\"fas fa-graduation-cap\"></i> Education</h3>\n        <p>").concat(edu || 'No education details provided', "</p>\n      </section>\n\n  \n    </div>\n  </div>\n</div>\n");
+        function generateList() {
+            var inputElement = document.getElementById('skills');
+            var ulElement = document.getElementById('skillsList');
+            if (inputElement && ulElement) {
+                var input = inputElement.value;
+                var items = input.split(',').map(function (item) { return item.trim(); });
+                ulElement.innerHTML = '';
+                items.forEach(function (item) {
+                    if (item) { // Check for non-empty items
+                        var li = document.createElement('li');
+                        li.textContent = item;
+                        ulElement.appendChild(li);
+                    }
+                });
+            }
+            else {
+                console.error('Input element or UL element not found');
+            }
+        }
         var elres = document.getElementById("output");
         if (elres) {
             elres.innerHTML = output;

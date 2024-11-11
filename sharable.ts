@@ -33,53 +33,84 @@ document.getElementById("form")?.addEventListener("submit", function (event) {
 
     // Corrected template for image
     const output = `
-    <div class="resume-container">
-      <div class="mainDiv">
-         <!-- Left side (Profile & Contact Info) -->
-        <div class="left-section">
-          ${proURL ? `<div class="profile-picture"><img src="${proURL}" alt="Profile Picture"></div>` : ''}
-          <h2 class="name">${name} ${namesec}</h2>
-          <section class="contact-info">
-            <ul>
-              <li><i class="fas fa-envelope"></i> ${em}</li>
-              <li><i class="fas fa-phone"></i> ${ph}</li>
-            </ul>
-          </section>
+<div class="resume-container">
+  <div class="mainDiv">
+     <!-- Left side (Profile & Contact Info) -->
+    <div class="left-section">
+      ${proURL ? `<div class="profile-picture"><img src="${proURL}" alt="Profile Picture"></div>` : ''}
+      <h2 class="name">${name} ${namesec}</h2>
+      <section class="contact-info">
+        <ul>
+          <li><i class="fas fa-envelope"></i> ${em}</li>
+          <li><i class="fas fa-phone"></i> ${ph}</li>
+        </ul>
+      </section>
 
-           <section class="profile-link">
-            <h3>Links: </h3>
-            <div class="links">
-            <p class="linkIcon"><i class="fa-brands fa-linkedin"></i>
-            <a href="${linkdin}" target="_blank">${linkdin ? linkdin : 'No link provided'}</a>
-             </p>
-            <p class="linkIcon"><i class="fa-solid fa-link"></i> 
-            <a href="${portfolio}" target="_blank">${portfolio ? portfolio : 'No link provided'}</a>
-            </p>
-            </div>
-          </section>
+      <section class="profile-link">
+        <h3>Links: </h3>
+        <div class="links">
+          <p class="linkIcon"><i class="fa-brands fa-linkedin"></i>
+          <a href="${linkdin}" target="_blank">${linkdin ? linkdin : 'No link provided'}</a>
+          </p>
+          <p class="linkIcon"><i class="fa-solid fa-link"></i> 
+          <a href="${portfolio}" target="_blank">${portfolio ? portfolio : 'No link provided'}</a>
+          </p>
         </div>
+      </section>
 
-        <!-- Right side (Experience, Education, Skills) -->
-        <div class="right-section">
-          <section class="resume-section">
-            <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
-            <p>${experience || 'No work experience provided'}</p>
-          </section>
-          
-          <section class="resume-section">
-            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-            <p>${edu || 'No education details provided'}</p>
-          </section>
-
-          <section class="resume-section">
-            <h3><i class="fas fa-code"></i> Skills</h3>
-            <p>${skills || 'No skills added'}</p>
-          </section>
-        </div>
-      </div>
+    <section class="skill-section">
+  <h3><i class="fas fa-code"></i> Skills</h3> 
+  <div>
+  ${skills
+    ? `<ul class="skills-list">${skills.split(',').map(skill => `<li>${skill.trim()}</li>`).join('')}</ul>`
+    : 'No skills added'
+  }
     </div>
-  `;
+</section>
 
+    </div>
+
+    <!-- Right side (Experience, Education, Skills) -->
+    <div class="right-section">
+      <section class="resume-section">
+        <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+        <p>${experience || 'No work experience provided'}</p>
+      </section>
+      
+      <section class="resume-section">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <p>${edu || 'No education details provided'}</p>
+      </section>
+
+  
+    </div>
+  </div>
+</div>
+`;
+
+
+
+
+    function generateList(): void {
+      const inputElement = document.getElementById('skills') as HTMLTextAreaElement;
+      const ulElement = document.getElementById('skillsList') as HTMLUListElement;
+
+      if (inputElement && ulElement) {
+        const input = inputElement.value;
+        const items = input.split(',').map(item => item.trim());
+        ulElement.innerHTML = '';
+
+        items.forEach(item => {
+          if (item) { // Check for non-empty items
+            const li = document.createElement('li');
+            li.textContent = item;
+            ulElement.appendChild(li);
+          }
+        });
+      } else {
+        console.error('Input element or UL element not found');
+      }
+    }
 
 
     const elres = document.getElementById("output");
@@ -164,6 +195,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const menu: any = document.getElementById('menu');
 
   menuToggle.addEventListener('click', function () {
-      menu.classList.toggle('active');
+    menu.classList.toggle('active');
   });
 });
